@@ -1,0 +1,40 @@
+{
+  "name": "hpsweb/asaas-sdk-php",
+  "type": "library",
+  "description": "Módulo para integração com o serviço de cobrança Asaas.com.",
+  "keywords": [
+    "Asaas",
+    "API",
+    "Payment SaaS",
+    "Credit Card",
+    "Boleto"
+  ],
+  "homepage": "https://github.com/OoHerbethoO/asaas-sdk-php",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Herbeth Santana",
+      "email": "herbeth@hps.net.br",
+      "homepage": "https://hps.net.br"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "require-dev": {
+    "kriswallsmith/buzz": "~0.10",
+    "guzzle/guzzle": "~3.7",
+    "guzzlehttp/guzzle": "~5.0|~6.0"
+  },
+  "suggest": {
+    "kriswallsmith/buzz": "To use BuzzAdapter, require kriswallsmith/buzz:~0.10.",
+    "guzzle/guzzle": "To use GuzzleAdapter, require guzzle/guzzle:~3.7.",
+    "guzzlehttp/guzzle": "To use GuzzleHttpAdapter, require guzzlehttp/guzzle:~5.0|~6.0."
+  },
+  "autoload": {
+    "psr-4": {
+      "HPSWeb\\Asaas\\": "src/"
+    }
+  },
+  "minimum-stability": "dev"
+}
