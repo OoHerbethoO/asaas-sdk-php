@@ -64,6 +64,24 @@ class Customer extends \HPSWeb\Asaas\Api\AbstractApi
     }
 
     /**
+     * Get Customer By Email
+     *
+     * @param   string  $email  Customer Id
+     * @return  CustomerEntity
+     */
+    public function getByReference($external_reference)
+    {
+        $listCustumer = $this->getAll(['externalReference' => $external_reference]);
+        foreach ($listCustumer as $customer) {
+            if ($customer->externalReference == $external_reference) {
+                return $customer;
+            }
+        }
+
+        return;
+    }
+
+    /**
      * Create new customer
      *
      * @param   array  $data  Customer Data

@@ -102,6 +102,21 @@ class Payment extends \HPSWeb\Asaas\Api\AbstractApi
     }
 
     /**
+     * Refund a Payment
+     *
+     * @param   string  $id    Payment Id
+     * @return  PaymentEntity
+     */
+    public function refund($id)
+    {
+        $payment = $this->adapter->post(sprintf('%s/payments/%s/refund', $this->endpoint, $id));
+
+        $payment = json_decode($payment);
+
+        return new PaymentEntity($payment);
+    }
+
+    /**
      * Update Payment By Id
      *
      * @param   string  $id    Payment Id

@@ -75,6 +75,9 @@ $clientes = $asaas->customer()->getAll(array $filtros);
 // Retorna os dados do cliente de acordo com o Id
 $cobranca = $asaas->customer()->getById(123);
 
+// Retorna os dados do cliente de acordo com o externalReference
+$cobranca = $asaas->customer()->getByReference("Reference 123");
+
 // Retorna os dados do cliente de acordo com o Email
 $clientes = $asaas->customer()->getByEmail('email@mail.com');
 
@@ -108,6 +111,9 @@ $cobranca = $asaas->payment()->create(array $dadosCobranca);
 
 // Atualiza os dados da cobrança
 $cobranca = $asaas->payment()->update(123, array $dadosCobranca);
+
+// Estornar uma cobrança
+$cobranca = $asaas->payment()->refund("pay_570043069874580");
 
 // Deleta uma cobrança
 $asaas->payment()->delete(123);

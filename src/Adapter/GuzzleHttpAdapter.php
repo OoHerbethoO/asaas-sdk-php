@@ -43,11 +43,13 @@ class GuzzleHttpAdapter implements AdapterInterface
     public function __construct($token, ClientInterface $client = null)
     {
         if (version_compare(ClientInterface::VERSION, '6') === 1) {
-            $this->client = $client ?: new Client(['headers' => ['access_token' => $token]]);
+            $this->client = $client ?: new Client(['headers' => ['access_token' => $token, 'Content-Type' => "application/json", 'Accept' => "application/json"]]);
         } else {
             $this->client = $client ?: new Client();
 
             $this->client->setDefaultOption('headers/access_token', $token);
+            $this->client->setDefaultOption('headers/Accept', "application/json");
+            $this->client->setDefaultOption('headers/Content-Type', "application/json");
         }
     }
 
@@ -89,7 +91,7 @@ class GuzzleHttpAdapter implements AdapterInterface
     public function put($url, $content = '')
     {
         $options = [];
-        $options['body'] = $content;
+        $options['json'] = $content;
 
         try {
             $this->response = $this->client->put($url, $options);
@@ -108,7 +110,7 @@ class GuzzleHttpAdapter implements AdapterInterface
     public function post($url, $content = '')
     {
         $options = [];
-        $options['form_params'] = $content;
+        $options['json'] = $content;
 
         try {
             $this->response = $this->client->post($url, $options);
@@ -147,6 +149,6 @@ class GuzzleHttpAdapter implements AdapterInterface
 
         $content = json_decode($body);
 
-        throw new HttpException(isset($content->message) ? $content->message : 'Request not processed.', $code);
+        throw new HttpException(isset($content->errors) ? $content->errors[0]->description : 'Request not processed.', $code);
     }
 }

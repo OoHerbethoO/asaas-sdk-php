@@ -17,14 +17,14 @@ abstract class AbstractApi
      *
      * @var string
      */
-    const ENDPOINT_PRODUCAO = 'https://asaas.com/api/v3/';
+    const ENDPOINT_PRODUCAO = 'https://asaas.com/api/v3';
 
     /**
      * Endpoint Sandbox
      *
      * @var string
      */
-    const ENDPOINT_SANDBOX = 'https://sandbox.asaas.com/api/v3/';
+    const ENDPOINT_SANDBOX = 'https://sandbox.asaas.com/api/v3';
 
     /**
      * Http Adapter Instance

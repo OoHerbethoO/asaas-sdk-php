@@ -41,6 +41,8 @@ class BuzzAsaasAuthListener implements ListenerInterface
     public function preSend(RequestInterface $request)
     {
         $request->addHeader('access_token: ' . $this->token);
+        $request->addHeader('Accept: ' . "application/json");
+        $request->addHeader('Content-Type: ' . "application/json");
     }
 
     /**

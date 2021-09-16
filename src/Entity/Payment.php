@@ -22,7 +22,7 @@ final class Payment extends \HPSWeb\Asaas\Entity\AbstractEntity
     /**
      * @var string
      */
-    public $subscription;
+    public $dateCreated;
 
     /**
      * @var string
@@ -52,7 +52,7 @@ final class Payment extends \HPSWeb\Asaas\Entity\AbstractEntity
     /**
      * @var float
      */
-    public $grossValue;
+    public $paymentLink;
 
     /**
      * @var string
@@ -62,12 +62,17 @@ final class Payment extends \HPSWeb\Asaas\Entity\AbstractEntity
     /**
      * @var string
      */
+    public $originalDueDate;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
      * @var string
      */
-    public $nossoNumero;
+    public $paymentDate;
 
     /**
      * @var string
@@ -87,7 +92,7 @@ final class Payment extends \HPSWeb\Asaas\Entity\AbstractEntity
     /**
      * @var string
      */
-    public $boletoUrl;
+    public $clientPaymentDate;
 
     /**
      * @var int
@@ -100,99 +105,64 @@ final class Payment extends \HPSWeb\Asaas\Entity\AbstractEntity
     public $installmentValue;
 
     /**
-     * @var string
+     * @var array
      */
-    public $creditCardHolderName;
+    public $creditCard = [];
 
     /**
      * @var string
      */
-    public $creditCardNumber;
+    public $externalReference;
+
+    /**
+     * @var bool
+     */
+    public $deleted;
+
+    /**
+     * @var bool
+     */
+    public $anticipated;
 
     /**
      * @var string
      */
-    public $creditCardExpiryMonth;
+    public $creditDate;
 
     /**
      * @var string
      */
-    public $creditCardExpiryYear;
+    public $estimatedCreditDate;
 
     /**
      * @var string
      */
-    public $creditCardCcv;
+    public $bankSlipUrl;
 
     /**
      * @var string
      */
-    public $creditCardHolderFullName;
+    public $lastInvoiceViewedDate;
 
     /**
      * @var string
      */
-    public $creditCardHolderEmail;
+    public $lastBankSlipViewedDate;
+
+    /**
+     * @var array
+     */
+    public $split = [];
 
     /**
      * @var string
      */
-    public $creditCardHolderCpfCnpj;
+    public $postalService;
 
     /**
      * @var string
      */
-    public $creditCardHolderAddress;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderAddressNumber;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderAddressComplement;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderProvince;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderCity;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderUf;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderPostalCode;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderPhone;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderPhoneDDD;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderMobilePhone;
-
-    /**
-     * @var string
-     */
-    public $creditCardHolderMobilePhoneDDD;
+    public $confirmedDate;
 
     /**
      * @param  string  $dueDate
